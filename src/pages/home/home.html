@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home">
+
+  <div *ngIf="isConnected">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col class="center">
+          <br>
+          <button ion-button color="danger" outline (click)="disconnect($event)">Disconnect</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-list>
+      <ion-list-header>
+        ESP8266
+      </ion-list-header>
+      <ion-item>
+        <h2>Voltage</h2>
+
+        <ion-note item-right>{{ esp8266.voltage }}V</ion-note>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header>
+        Sensors
+      </ion-list-header>
+      <ion-item>
+        <h2>Temperature</h2>
+
+        <ion-note item-right>{{ sensor.temperature }}&deg;С</ion-note>
+      </ion-item>
+      <ion-item>
+        <h2>Humidity</h2>
+
+        <ion-note item-right>{{ sensor.humidity }}%</ion-note>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header>
+        Relays
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Kitchen</ion-label>
+        <ion-toggle [(ngModel)]="relay1PowerOnModel" color="secondary"></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="!isConnected">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col class="center">
+          <br>
+          <button ion-button color="secondary" outline (click)="connect($event)">Connect</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

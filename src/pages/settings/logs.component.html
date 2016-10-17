@@ -1,0 +1,9 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Logs</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="logs">
+  <div class="entry" *ngFor="let message of messages">{{ message }}</div>
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-list-header>
+      Utils
+    </ion-list-header>
+
+    <button ion-item (click)="openLogsPage($event)">
+      Logs
+    </button>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      App info
+    </ion-list-header>
+
+    <ion-item>
+      <h2>Version</h2>
+
+      <ion-note item-right>{{ appVersion }}</ion-note>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
